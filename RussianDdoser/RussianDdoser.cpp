@@ -10,6 +10,10 @@
 #include <chrono>
 
 using namespace std::chrono_literals;
+using std::cout;
+using std::wcout;
+using std::cin;
+using std::endl;
 
 std::string center(std::string input, int width = 113) {
     return std::string((width - input.length()) / 2, ' ') + input;
@@ -115,7 +119,7 @@ void loggerLoop()
 	{
 		std::this_thread::sleep_for(1s);
 		std::string stats = "Replied: " + std::to_string(requests - errors) + " Timeouted: " + std::to_string(errors);
-		std::cout << "\r" << std::string((120 - stats.size()) / 2, ' ') << stats;
+		cout << "\r" << std::string((120 - stats.size()) / 2, ' ') << stats;
 	}
 }
 
@@ -123,34 +127,34 @@ int main()
 {
 	SetConsoleTitleA("Russian government websites flooder | Made in Poland | Slava Ukrainie!");
 
-	std::cout << std::endl << std::endl;
-    std::cout << std::string((120 - 35) / 2, ' ') + dye::light_aqua("Russian government websites flooder") << std::endl;
-    std::cout << std::string((120 - 42) / 2, ' ') + dye::bright_white("Made in ") + dye::bright_white_on_red("Poland") + dye::bright_white_on_black(" to support ") + dye::light_yellow_on_blue("Ukrainian") + dye::bright_white_on_black(" People") << std::endl;
-	std::cout << std::endl << std::endl;
+	cout << endl << endl;
+	cout << std::string((120 - 35) / 2, ' ') + dye::light_aqua("Russian government websites flooder") << endl;
+	cout << std::string((120 - 42) / 2, ' ') + dye::bright_white("Made in ") + dye::bright_white_on_red("Poland") + dye::bright_white_on_black(" to support ") + dye::light_yellow_on_blue("Ukrainian") + dye::bright_white_on_black(" People") << endl;
+	cout << endl << endl;
 
 	_setmode(_fileno(stdout), _O_U16TEXT);
 
 	for(int i = 0; i < 13; ++i)
 	{
-		std::wcout << std::wstring((120 - 70) / 2, ' ') << emblem[i] << std::endl;
+		wcout << std::wstring((120 - 70) / 2, ' ') << emblem[i] << endl;
 	}
 
 	_setmode(_fileno(stdout), _O_TEXT);
 
-	std::cout << std::endl << std::endl;
-	std::cout << std::string(120, '=');
-	std::cout << std::endl << std::endl << std::string((120 - 77) / 2, ' ') << "Replied: Servers are responding, tho the response might be from reverse proxy" << std::endl << std::string((120 - 72) / 2, ' ') << "Timeouted: most likely out of service, in other words: successful attack" << std::endl << std::endl;
+	cout << endl << endl;
+	cout << std::string(120, '=');
+	cout << endl << endl << std::string((120 - 77) / 2, ' ') << "Replied: Servers are responding, tho the response might be from reverse proxy" << std::endl << std::string((120 - 72) / 2, ' ') << "Timeouted: most likely out of service, in other words: successful attack" << endl << endl;
 
-	std::cout << std::string((120 - 67) / 2, ' ') << "Specify threads amount (5mbps internet speed per 100 threads used)" << std::endl;
+	cout << std::string((120 - 67) / 2, ' ') << "Specify threads amount (5mbps internet speed per 100 threads used)" << endl;
 
 	int threadsNum;
 
-	std::cin >> threadsNum;
+	cin >> threadsNum;
 
-	if(!std::cin.good())
+	if(!cin.good())
 	{
-		std::cout << "Specify number! Press any key to exit.";
-		std::cin.get();
+		cout << "Specify number! Press any key to exit.";
+		cin.get();
 		return -1;
 	}
 
